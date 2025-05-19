@@ -1,16 +1,10 @@
 # DataAnalytics-Assessment
 
 Pre Assessment: The data was loaded to a Mysql DB instance. The sqldump contained a database called adashi_staging and the following tables;
-plans_plan
-
-savings_savingsaccount
-
-users_customuser
-
-withdrawals_withdrawal
+plans_plan, savings_savingsaccount, users_customuser, withdrawals_withdrawal.
 
 
-
+Assessment
 1. High-Value Customers with Multiple Products
 
 Task: Write a query to find customers with at least one funded savings plan AND one funded investment plan, sorted by total deposits.
