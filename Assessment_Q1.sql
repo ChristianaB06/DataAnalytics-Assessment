@@ -3,12 +3,15 @@ SELECT
   usr.name,
   COUNT(DISTINCT sav.id) AS savings_count,
   COUNT(DISTINCT pln.id) AS investment_count,
-  ROUND(COALESCE(COALESCE(SUM(pln.amount), 0),  2) AS total_deposits
+  ROUND(
+    COALESCE(SUM(sav.confirmed_amount), 0) + COALESCE(SUM(pln.amount), 0),
+    2
+  ) AS total_deposits
 FROM users_customuser usr
 
 -- Join only funded savings accounts
 INNER JOIN savings_savingsaccount sav
-  ON sav.owner_id = usr.id AND sav.amount > 0
+  ON sav.owner_id = usr.id AND sav.confirmed_amount > 0
   
 -- Join only funded investment plans
 INNER JOIN plans_plan pln
